@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+
+<div id="entry">
+    <br>
+
+        {% if entry %}
+             {{ entry |safe}}
+        {% else %}
+            <a> Error! The Entry does not exist! </a>
+        {% endif %}
+
+        <form action="{% url 'wiki:edit' title %}" method="get">
+        <button type="submit" class="btn btn-light">Edit</button>
+    </form>
+
+
+</div>
+
+
+{% endblock %}
